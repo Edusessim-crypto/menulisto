@@ -1,0 +1,95 @@
+/* Tipografia: título arredondado/acolhedor (Quicksand) + corpo legível (Nunito Sans) */
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  /* Paleta "Jardim Tropical" */
+  --color-cream: #fff8ee;
+  --color-white: #ffffff;
+  --color-coral: #e84855;
+  --color-coral-hover: #d63b48;
+  --color-sage: #35a57a;
+  --color-sage-hover: #2d8f6a;
+  --color-sage-light: #e1f2ea;
+  --color-yellow: #ffba49;
+  --color-yellow-text: #5c3d00;
+  --color-brown: #2b2d42;
+  --color-brown-soft: #555b6e;
+  --color-border: #e8e0d4;
+
+  --font-heading: "Quicksand", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --font-body: "Nunito Sans", system-ui, -apple-system, sans-serif;
+
+  --radius-card: 24px;
+  --radius-btn: 18px;
+
+  --shadow-soft: 0 4px 20px -4px rgba(43, 45, 66, 0.1);
+  --shadow-card: 0 8px 30px -6px rgba(43, 45, 66, 0.12);
+  --shadow-lift: 0 16px 40px -10px rgba(43, 45, 66, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-brown);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--color-brown);
+  }
+}
+
+/* Foco visível acessível */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--color-sage);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+::selection {
+  background-color: var(--color-yellow);
+  color: var(--color-yellow-text);
+}
+
+/* Evita rolagem horizontal em qualquer viewport */
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Fade-in do popup de upsell */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

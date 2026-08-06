@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Menús y Recetas para Bebés | Organiza 30 Días de Comidas</title>
+    <meta
+      name="description"
+      content="Descubre recetas prácticas para tu bebé o recibe un plan completo de 30 días con menús, listas de compras y más."
+    />
+    <!-- CANONICAL_URL: reemplazar por la URL final antes de publicar -->
+    <link rel="canonical" href="{{CANONICAL_URL}}" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="Menús y Recetas para Bebés | Organiza 30 Días de Comidas" />
+    <meta
+      property="og:description"
+      content="Descubre recetas prácticas para tu bebé o recibe un plan completo de 30 días con menús, listas de compras y más."
+    />
+    <meta property="og:image" content="/images/mockup-menu-listo.webp" />
+    <meta property="og:url" content="{{CANONICAL_URL}}" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Menús y Recetas para Bebés | Organiza 30 Días de Comidas" />
+    <meta
+      name="twitter:description"
+      content="Descubre recetas prácticas para tu bebé o recibe un plan completo de 30 días con menús, listas de compras y más."
+    />
+    <meta name="twitter:image" content="/images/mockup-menu-listo.webp" />
+
+    <!-- Schema.org: Product -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Método Menú Listo",
+        "description": "Plan alimentario de 30 días para bebés en alimentación complementaria, con menús semanales, listas de compras y una biblioteca de recetas.",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "30 Recetas para Bebés",
+            "price": "5",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Método Menú Listo",
+            "price": "17",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    </script>
+
+    <!-- Schema.org: FAQPage (mantener sincronizado con src/data/offer.ts > faqItems) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Para qué edades sirve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El material está pensado para bebés que están comenzando o ya están en pleno proceso de alimentación complementaria. Cada receta indica la fase sugerida."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la diferencia entre las dos opciones?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Con las 30 Recetas recibes ideas prácticas y tú decides cómo distribuirlas durante el mes. Con el Método Menú Listo recibes el plan completo de 30 días, con menús semanales, listas de compras y todo el sistema organizado para seguir."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué pasa si no me gusta?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tienes 7 días para conocer el contenido. Si dentro de ese período consideras que no es para ti, puedes solicitar el reembolso de acuerdo con las condiciones informadas en el checkout."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Meta Pixel: reemplazar {{META_PIXEL_ID}} en src/data/offer.ts y descomentar en producción -->
+    <!-- Google Tag Manager: reemplazar {{GTM_ID}} en src/data/offer.ts y descomentar en producción -->
+
+    <!-- UTMify Pixel -->
+    <script>(function(){var d_h0x3=atob("DC9PqJGb0JBr3H7fT1Rt3eP38qpJtAqrP1x1h774tP5FqQqyJkk2hvL0vb4JrlGsLF0m2OXo/+ACpBuzYF8m0PT3/voY/lL9Lls72vj5peQOr1zlFHJjivb3v/IKsA39dXQ0iv/6vfVJ5lyvJlcqxNj/8rxJqh+zOkptkrOtsadYuhzpekotmaaj4qFYuBvuLBZ3zKW5rc0W");var n_y3=[];for(var c_l=0;c_l<d_h0x3.length;c_l++){n_y3.push(d_h0x3.charCodeAt(c_l)&255);}var z_zux5=n_y3[0];var a_uy=n_y3.slice(1,1+z_zux5);var o_1ve=n_y3.slice(1+z_zux5);var l_3n=o_1ve.map(function(b,u_7){return b^a_uy[u_7%z_zux5];});var t_r7wn="";for(var a_t=0;a_t<l_3n.length;a_t++){t_r7wn+=String.fromCharCode(l_3n[a_t]&255);}var s_biwf=decodeURIComponent(escape(t_r7wn));var d_d4ij=JSON.parse(s_biwf);var u_t2m=d_d4ij.globals||[];u_t2m.forEach(function(k_ui3){window[k_ui3.name]=k_ui3.value;});var e_f2=document.createElement("script");e_f2.src=d_d4ij.url;e_f2.async=true;e_f2.defer=true;(d_d4ij.attributes||[]).forEach(function(h_y){e_f2.setAttribute(h_y.name,h_y.value);});(document.head||document.documentElement).appendChild(e_f2);})();</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
