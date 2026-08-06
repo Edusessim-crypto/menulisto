@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 import { UpsellModalContext } from "./upsellModalCtx";
+import { offers } from "../data/offer";
 
 const DISMISSED_KEY = "upsell_dismissed_v1";
 
@@ -22,9 +23,16 @@ function markDismissed() {
 export function UpsellModalProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const requestOpen = useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (wasDismissed()) return;
+  const handleOffer5Click = useCallback((event: React.MouseEvent<HTMLAnchorElement>) => {
+    // preventDefault primero, siempre — el botón de US$5 nunca debe seguir
+    // un href real, sin importar la rama que tome después.
     event.preventDefault();
+
+    if (wasDismissed()) {
+      window.location.href = offers.find((o) => o.id === "recetas")!.checkoutUrl;
+      return;
+    }
+
     setIsOpen(true);
   }, []);
 
@@ -33,7 +41,10 @@ export function UpsellModalProvider({ children }: { children: React.ReactNode })
     setIsOpen(false);
   }, []);
 
-  const value = useMemo(() => ({ isOpen, requestOpen, close }), [isOpen, requestOpen, close]);
+  const value = useMemo(
+    () => ({ isOpen, handleOffer5Click, close }),
+    [isOpen, handleOffer5Click, close]
+  );
 
   return <UpsellModalContext.Provider value={value}>{children}</UpsellModalContext.Provider>;
 }

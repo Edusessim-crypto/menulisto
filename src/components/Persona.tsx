@@ -9,7 +9,7 @@ export function Persona() {
           src={persona.photoUrl}
           alt={`Foto de ${persona.name}, creadora del material`}
           label="Foto"
-          className="w-40 shrink-0 sm:w-48"
+          className="w-[100px] shrink-0 sm:w-40"
           aspect="aspect-square"
           rounded="rounded-full"
         />

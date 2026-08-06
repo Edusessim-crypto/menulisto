@@ -10,14 +10,14 @@ import { useUpsellModal } from "../hooks/useUpsellModal";
 export function FinalCta() {
   const recetas = offers.find((o) => o.id === "recetas")!;
   const metodo = offers.find((o) => o.id === "metodo")!;
-  const { requestOpen } = useUpsellModal();
+  const { handleOffer5Click } = useUpsellModal();
   const { currency } = useCurrency();
 
   const handleRecetasClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    // Nunca navega directo al checkout desde acá: handleOffer5Click decide
+    // entre abrir el popup o redirigir, según si ya fue descartado antes.
     trackEvent(trackingEvents.clickOffer5);
-    requestOpen(event);
-    if (event.defaultPrevented) return;
-    trackEvent(trackingEvents.initiateCheckout5);
+    handleOffer5Click(event);
   };
 
   return (
@@ -30,7 +30,7 @@ export function FinalCta() {
 
         <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <CtaButton
-            href={recetas.checkoutUrl}
+            href="#"
             variant="secondary"
             onClick={handleRecetasClick}
             className="sm:w-auto"

@@ -8,24 +8,19 @@ import { useUpsellModal } from "../hooks/useUpsellModal";
 
 export function OfferCard({ offer }: { offer: Offer }) {
   const isHighlighted = offer.id === "metodo";
-  const { requestOpen } = useUpsellModal();
-
-  const clickEvent =
-    offer.id === "metodo" ? trackingEvents.clickOffer17 : trackingEvents.clickOffer5;
-  const checkoutEvent =
-    offer.id === "metodo"
-      ? trackingEvents.initiateCheckout17
-      : trackingEvents.initiateCheckout5;
+  const { handleOffer5Click } = useUpsellModal();
+  const isRecetas = offer.id === "recetas";
 
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    trackEvent(clickEvent);
-    // El CTA de US$5 abre el popup de upsell antes de ir al checkout
-    // (salvo que la visitante ya lo haya descartado en esta sesión).
-    if (offer.id === "recetas") {
-      requestOpen(event);
-      if (event.defaultPrevented) return;
+    if (isRecetas) {
+      // Nunca navega directo al checkout desde acá: handleOffer5Click decide
+      // entre abrir el popup o redirigir, según si ya fue descartado antes.
+      trackEvent(trackingEvents.clickOffer5);
+      handleOffer5Click(event);
+      return;
     }
-    trackEvent(checkoutEvent);
+    trackEvent(trackingEvents.clickOffer17);
+    trackEvent(trackingEvents.initiateCheckout17);
   };
 
   return (
@@ -70,7 +65,7 @@ export function OfferCard({ offer }: { offer: Offer }) {
       </div>
 
       <CtaButton
-        href={offer.checkoutUrl}
+        href={isRecetas ? "#" : offer.checkoutUrl}
         onClick={handleClick}
         variant={isHighlighted ? "primary" : "secondary"}
         className="mt-6 w-full"
