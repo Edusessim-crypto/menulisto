@@ -37,13 +37,17 @@ export function UpsellModalProvider({ children }: { children: React.ReactNode })
   }, []);
 
   const close = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+
+  const decline = useCallback(() => {
     markDismissed();
     setIsOpen(false);
   }, []);
 
   const value = useMemo(
-    () => ({ isOpen, handleOffer5Click, close }),
-    [isOpen, handleOffer5Click, close]
+    () => ({ isOpen, handleOffer5Click, close, decline }),
+    [isOpen, handleOffer5Click, close, decline]
   );
 
   return <UpsellModalContext.Provider value={value}>{children}</UpsellModalContext.Provider>;

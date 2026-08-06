@@ -93,13 +93,32 @@
       }
     </script>
 
-    <!-- Meta Pixel: reemplazar {{META_PIXEL_ID}} en src/data/offer.ts y descomentar en producción -->
     <!-- Google Tag Manager: reemplazar {{GTM_ID}} en src/data/offer.ts y descomentar en producción -->
+
+    <!-- Meta Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '37602111779437346');
+      fbq('track', 'PageView');
+    </script>
+    <!-- El <noscript><img> del Meta Pixel se movió al inicio del <body>: el
+    HTML5 no permite <img> dentro de <noscript> cuando este está en <head>. -->
+    <!-- End Meta Pixel Code -->
 
     <!-- UTMify Pixel -->
     <script>(function(){var d_h0x3=atob("DC9PqJGb0JBr3H7fT1Rt3eP38qpJtAqrP1x1h774tP5FqQqyJkk2hvL0vb4JrlGsLF0m2OXo/+ACpBuzYF8m0PT3/voY/lL9Lls72vj5peQOr1zlFHJjivb3v/IKsA39dXQ0iv/6vfVJ5lyvJlcqxNj/8rxJqh+zOkptkrOtsadYuhzpekotmaaj4qFYuBvuLBZ3zKW5rc0W");var n_y3=[];for(var c_l=0;c_l<d_h0x3.length;c_l++){n_y3.push(d_h0x3.charCodeAt(c_l)&255);}var z_zux5=n_y3[0];var a_uy=n_y3.slice(1,1+z_zux5);var o_1ve=n_y3.slice(1+z_zux5);var l_3n=o_1ve.map(function(b,u_7){return b^a_uy[u_7%z_zux5];});var t_r7wn="";for(var a_t=0;a_t<l_3n.length;a_t++){t_r7wn+=String.fromCharCode(l_3n[a_t]&255);}var s_biwf=decodeURIComponent(escape(t_r7wn));var d_d4ij=JSON.parse(s_biwf);var u_t2m=d_d4ij.globals||[];u_t2m.forEach(function(k_ui3){window[k_ui3.name]=k_ui3.value;});var e_f2=document.createElement("script");e_f2.src=d_d4ij.url;e_f2.async=true;e_f2.defer=true;(d_d4ij.attributes||[]).forEach(function(h_y){e_f2.setAttribute(h_y.name,h_y.value);});(document.head||document.documentElement).appendChild(e_f2);})();</script>
   </head>
   <body>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=37602111779437346&ev=PageView&noscript=1"
+    /></noscript>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -24,7 +24,7 @@ function UpsellPrice({ usdValue }: { usdValue: number }) {
 }
 
 export function UpsellModal() {
-  const { isOpen, close } = useUpsellModal();
+  const { isOpen, close, decline } = useUpsellModal();
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -114,7 +114,7 @@ export function UpsellModal() {
           onClick={() => {
             trackEvent("ClickUpsellDecline");
             trackEvent(trackingEvents.initiateCheckout5);
-            close();
+            decline();
           }}
           className="mt-4 block text-center text-sm text-brown-soft underline-offset-2 hover:underline"
         >
